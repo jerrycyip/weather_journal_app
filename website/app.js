@@ -5,7 +5,7 @@ let d = new Date();
 let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
 // api constructors for retrieving weather data from openweathermap.org
-const apiKey = '2ad76e8d73c762b9428f448e8ecc3119';
+const apiKey = '';
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 
 // event listener that triggers new weather journal entry
@@ -28,7 +28,9 @@ const getWeather = async (baseURL, zip, apiKey) => {
     const res = await fetch(baseURL + zip + '&appid=' + apiKey)
     // if successful, log and return weather data
     try {
-        const weatherData = res.json();
+        const weatherData = await res.json();
+        console.log(weatherData.name);
+        console.log(weatherData.main.temp);
         console.log(weatherData);
         
         return weatherData;
