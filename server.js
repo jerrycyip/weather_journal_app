@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+projectData = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -24,10 +24,21 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Routing
-app.post('/add', data){
-    console.log(data);
-    projectData.push(data);
+// Post Route: add new weather journal entry
+app.post('/add', addEntry);
+
+function addEntry(req, res) {
+    projectData.push(req.body);
+    res.send(projectData[projectData.length-1]);
 }
+// Get all weather journal entries
+app.get('/all', getEntries);
+
+function getEntries(req, res) {
+    console.log(projectData);
+    res.send(projectData);
+}
+
 // Define port #
 const port = 3000;
 
