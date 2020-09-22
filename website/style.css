@@ -1,32 +1,197 @@
-body{
+html {
+}
+/* rules that apply to entire page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/*body{
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
+}*/
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-template-rows: 100px 400px 400px 35px;
+    grid-template-areas: "heading" 
+                        "view-entries" 
+                        "all-entries" 
+                        "footer";
+    /*grid-template-columns: 1fr;
+/*    grid-auto-rows: minmax(150px, auto);*/
     /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
+/*    height:100vh;*/
+    background: #b1faf4;
+    color: #0e0c02;
+    /*justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif; */
+}
+.headline{
+    grid-area: heading;
+    /*text-align: center;*/
+    color: black; /*rgba(255, 255, 255, 0.959);*/
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#heading {
+/*    align-self: baseline; 
+    align-content: center;
+    vertical-align: baseline;*/
+    
+    font-size: 2.75em;
+    
+}
+#view-entries {
+    grid-area: view-entries;
+    display: grid;
+    width: 100%;
+/*    height: 100%;*/
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "new-entry view-entry";
+    
+}
+h3 {
+    margin: 5px;
+    font-size: 1.25em;
+}
+#new-entry {
+    grid-area: new-entry;
+    /*min-width: 80%;*/
+    width: 80%;
+    max-width: 500px;
+    margin-left: 12.5%;
+    margin-right: 7.5%;
+    background: rgba(57, 73, 107, 0.4);
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.mood-container {
+    height: 80%;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+.myInput {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 90%;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+    text-indent: 0.5em;
 }
 
-.holder{
-
+.entry-details {
+    height: auto;
+    margin-left: 7.5%;
+    /*text-align: center;*/
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
-
-.entry{
-    background: rgba(59, 74, 107, .4);
+#zip {
+    width: 95px;
+    max-width: 95px;
+    margin-right: 10px;
+    /*border-radius: 3px;
+    outline: none;*/
 }
-
+.button-ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+#generate {
+    height: auto;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.view-entry {
+    grid-area: view-entry;
+    /*min-width: 80%;*/
+    width: 80%;
+    max-width: 500px;
+    margin-left: 7.5%;
+    margin-right: 12.5%;
+    background: rgba(57, 73, 107, 0.4);
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+#view-title {
+    margin-left: 7.5%;
+}
 #entryHolder{
-
+    max-height: 90%;
 }
+.meta-details {
+    width: 85%;
+    margin-left: 7.5%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    /*background: white;  #b1faf4;*/
+}
+.mood-holder {
+    display: flex;
+    flex-direction: column;
+    max-height: 180px;
+    width: 85%;
+    margin-left: 7.5%;
+    margin-top: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-y: auto;
+/*    background: white;*/
+}
+.all-entries {
+    grid-area: all-entries;
+    margin-top: 15px;
+}
+
+
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: black; #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+
+/*
+.entry{
+    
+}
+
+
 
 #date{
 
@@ -48,7 +213,7 @@ body{
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
-label{
+/*label{
     display:block;
     font-size: 27px;
 }
@@ -56,17 +221,17 @@ label{
 input{
     display:block;
     height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    width: 100%;
+    background-color: white;
+    color: black;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 80px;
+    height: 40px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
@@ -74,9 +239,7 @@ button{
     border: none;
     box-shadow: 2px 4px 5px #444;
 }
-h1{
-    font-size: 36px;
-}
+
 
 textarea{
     background:#22b2da;
@@ -85,27 +248,3 @@ textarea{
     font-family: 'Oswald', sans-serif;
 }
 /* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
