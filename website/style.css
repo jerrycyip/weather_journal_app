@@ -24,7 +24,7 @@ html {
     /* grid-template-columns:  */
 /*    height:100vh;*/
     background: #b1faf4;
-    color: #0e0c02;
+    color: white; #0e0c02;
     /*justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -48,6 +48,7 @@ html {
     
     font-size: 2.75em;
     
+    
 }
 #view-entries {
     grid-area: view-entries;
@@ -61,6 +62,8 @@ html {
 h3 {
     margin: 5px;
     font-size: 1.25em;
+    color: black;
+    text-align: center;
 }
 #new-entry {
     grid-area: new-entry;
@@ -75,7 +78,7 @@ h3 {
 }
 .mood-container {
     height: 80%;
-    width: 85%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
@@ -88,22 +91,40 @@ h3 {
     width: 100%;
     border-radius: 5px;
     resize: none;
-    text-indent: 0.5em;
+    /*text-indent: 0.5em;*/
+    padding: 0.5em;
+    /*padding-right: 0.5em;*/
 }
 
 .entry-details {
     height: auto;
-    margin-left: 7.5%;
+    margin-left: 5%;
     /*text-align: center;*/
     margin-top: 5px;
     margin-bottom: 10px;
+    color: black;
+    display: grid;
+    width: 90%;
+    
+    grid-template-columns: 65px 1fr 1fr; 
+    grid-template-areas: "zip-label zip date";
+}
+.entry-details label{
+    text-align: left;
 }
 #zip {
+    padding: 0.25em;
+    grid-area: zip;
     width: 95px;
     max-width: 95px;
-    margin-right: 10px;
-    /*border-radius: 3px;
-    outline: none;*/
+    border: 1px solid black;
+    border-radius: 3px;
+    outline: none;
+}
+
+#entry-date{
+    grid-area: date;
+    text-align: center;
 }
 .button-ctr {
     display: flex;
@@ -136,29 +157,114 @@ button:focus {
     border-radius: 5px;
     border: 1px solid grey;
 }
+.title{
+    text-align: center;
+}
 #view-title {
     margin-left: 7.5%;
 }
 #entryHolder{
-    max-height: 90%;
+    height: 85%;
+    display: grid;
+    grid-template-rows: 8% 6% 30% 6% 50%;
+    grid-template-areas: "locale" 
+                        "description"
+                         "temp-icon"
+                         "date"
+                         "mood";
 }
 .meta-details {
     width: 85%;
     margin-left: 7.5%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    font-size: 1.1em;
+    /*margin-top: 5px;*/
     /*background: white;  #b1faf4;*/
 }
-.mood-holder {
+
+#weather, #weather-details, #date{
+    font-weight: 500;
+}
+#locale {
+    grid-area: locale;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 0.15em;
+    font-size: 1.35em;
+}
+
+#weather {
+    grid-area: description;
+    text-align: center;
+    text-transform: capitalize;
+    /*margin-bottom: -12px;*/
+}
+#weather-info{
+    grid-area: temp-icon;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "temp icon";
+    margin-bottom: -10px;
+}
+#temp-details {
+    grid-area: temp;
+    align-self: center;
+    text-align: center;
+    /*margin: auto 50%;*/
+    font-size: 1.5em;
+
+/*    width: 50%;
+    height: 100%;
+    position: relative;
+    float: left;
     display: flex;
     flex-direction: column;
-    max-height: 180px;
+    font-size: 1.5em;*/
+}
+#temp{
+    margin: auto 0;
+    width: auto;
+}
+.weather-icon {
+    grid-area: icon;
+
+    /*
+    position: relative;
+    float: right;
+    width: 50%;
+    display: flex;
+    flex-direction: column;*/
+}
+#icon {
+    margin: auto 0;
+    width: auto;
+}
+
+#date {
+    grid-area: date;
+    color: white;
+    text-align: center;
+}
+/*
+#date::before {
+    content: "Journal Entry for ";
+    
+}
+*/
+.mood-holder {
+    grid-area: mood;
+    display: flex;
+    flex-direction: column;
+    height: 175px;
+    max-height: 175px;
     width: 85%;
     margin-left: 7.5%;
-    margin-top: 5px;
+    margin-top: 7px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow-y: auto;
+    color: white;
 /*    background: white;*/
 }
 .all-entries {
@@ -208,9 +314,7 @@ button:focus {
 .headline {
 
 }
-.title{
 
-}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 /*label{

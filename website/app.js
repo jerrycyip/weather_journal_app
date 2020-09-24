@@ -2,7 +2,7 @@
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
 
 // api constructors for retrieving weather data from openweathermap.org
 const apiKey = '2ad76e8d73c762b9428f448e8ecc3119';
@@ -28,7 +28,7 @@ function newEntry(event) {
     .then (function (weatherData){
         postEntry('/add', {date: newDate, weather: weatherData.weather[0]['description'], 
             icon: weatherData.weather[0]['icon'], temp: weatherData.main.temp, 
-            city: weatherData.name, mood: currentMood});
+            locale: weatherData.name, mood: currentMood});
     })
     .then (function(newEntry){
         updateUI('/all');
@@ -42,7 +42,6 @@ const getWeather = async (baseURL, zip, apiKey, units) => {
     // if successful, log and return weather data
     try {
         const weatherData = await res.json(); 
-        console.log(weatherData);       
         return weatherData;
     } 
     catch (error) {
@@ -62,7 +61,7 @@ const postEntry = async (url='', data={}) => {
             weather: data.weather,
             icon: data.icon,
             temp: data.temp,
-            city: data.city,
+            locale: data.locale,
             mood: data.mood
         })
     })
@@ -87,16 +86,22 @@ const updateUI = async(url='') => {
         allEntries = await res.json();
         latestEntry = allEntries[allEntries.length-1];
         weatherIcon = latestEntry.icon;
-        document.getElementById('date').innerHTML = latestEntry.date;
-        document.getElementById('temp').innerHTML = latestEntry.temp;
+        document.getElementById('locale').innerHTML = latestEntry.locale;
+        document.getElementById('temp').innerHTML = Math.round(latestEntry.temp) + "&#8457;";
         document.getElementById('weather').innerHTML = latestEntry.weather;
-        document.querySelector('.weather-icon').innerHTML = `<img src="${iconURL}${weatherIcon}${iconFormat}" alt="weather-icon"> </img>`;
+        document.querySelector('.weather-icon').innerHTML = `<img id="icon" src="${iconURL}${weatherIcon}${iconFormat}" alt="weather-icon"> </img>`;
+        document.getElementById('date').innerHTML = latestEntry.date;
         document.getElementById('content').innerHTML = latestEntry.mood;
-        console.log(allEntries);
+        /*console.log(allEntries);*/
     }
     catch (error) {
         console.log("error occurred:", error);
     }
 }
+
+function fillEntryDate(){
+    document.getElementById('entry-date').innerHTML = `Date: ${newDate}`;
+}
+fillEntryDate();
 
 

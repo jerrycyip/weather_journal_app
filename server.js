@@ -35,7 +35,7 @@ function addEntry(req, res) {
 app.get('/all', getEntries);
 
 function getEntries(req, res) {
-    console.log(projectData);
+    /*console.log(projectData);*/
     res.send(projectData);
 }
 
