@@ -1,73 +1,67 @@
-html {
-}
+    html {}
 /* rules that apply to entire page */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-/*body{
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}*/
 
-#app{
+#app {
     display: grid;
-    grid-template-rows: 100px 400px 400px 35px;
-    grid-template-areas: "heading" 
-                        "view-entries" 
-                        "all-entries" 
-                        "footer";
-    /*grid-template-columns: 1fr;
-/*    grid-auto-rows: minmax(150px, auto);*/
-    /* grid-template-columns:  */
-/*    height:100vh;*/
+    height: 100vh;
+    min-height: 100vh;
+    width: auto;
+    grid-template-rows: 100px 400px auto 35px;
+    grid-template-areas: "heading heading" "new-entry view-entry" "all-entries all-entries" "footer footer";
+    grid-template-columns: 1fr 1fr;
     background: #b1faf4;
-    color: white; #0e0c02;
-    /*justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif; */
+    color: white;
+    #0e0c02;
+    font-family: "Comic Neue";
 }
-.headline{
+/* specific rules for section of the website/app */
+
+.headline {
     grid-area: heading;
-    /*text-align: center;*/
-    color: black; /*rgba(255, 255, 255, 0.959);*/
+    color: black;
+    /*rgba(255, 255, 255, 0.959);*/
     font-weight: 800;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }
+
 #heading {
-/*    align-self: baseline; 
-    align-content: center;
-    vertical-align: baseline;*/
-    
     font-size: 2.75em;
-    
-    
 }
+/*
 #view-entries {
-    grid-area: view-entries;
-    display: grid;
-    width: 100%;
-/*    height: 100%;*/
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "new-entry view-entry";
-    
+grid-area: view-entries;
+/*display: grid;
+width: 100%;
+grid-template-columns: 50% 50%;
+grid-template-areas: "new-entry view-entry";
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
 }
+*/
+
 h3 {
-    margin: 5px;
-    font-size: 1.25em;
+    margin: 1%; 5px;
     color: black;
     text-align: center;
+    font-size: 1.4em;
 }
+
 #new-entry {
     grid-area: new-entry;
-    /*min-width: 80%;*/
     width: 80%;
     max-width: 500px;
     margin-left: 12.5%;
@@ -75,7 +69,13 @@ h3 {
     background: rgba(57, 73, 107, 0.4);
     border-radius: 5px;
     border: 1px solid grey;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.7);
 }
+
+textarea::placeholder {
+    color: grey;
+}
+
 .mood-container {
     height: 80%;
     width: 90%;
@@ -83,55 +83,66 @@ h3 {
     margin-right: auto;
     border-radius: 5px;
 }
+
 .myInput {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    height: 90%;
+    height: 89%;
     width: 100%;
     border-radius: 5px;
     resize: none;
-    /*text-indent: 0.5em;*/
     padding: 0.5em;
-    /*padding-right: 0.5em;*/
 }
 
 .entry-details {
     height: auto;
     margin-left: 5%;
-    /*text-align: center;*/
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 1%; 5px;
+    margin-bottom: 2%; 10px;
     color: black;
     display: grid;
     width: 90%;
-    
-    grid-template-columns: 65px 1fr 1fr; 
+    grid-template-columns: 65px 1fr 1fr;
     grid-template-areas: "zip-label zip date";
+    align-items: center;
 }
-.entry-details label{
+
+.entry-details label {
+    grid-area: zip-label;
     text-align: left;
 }
+
 #zip {
-    padding: 0.25em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0.25em;
     grid-area: zip;
-    width: 95px;
-    max-width: 95px;
+    width: auto;
+    min-width: 96px;
+    max-width: 125px;
+    /*max-width: 96px;*/
     border: 1px solid black;
     border-radius: 3px;
     outline: none;
 }
 
-#entry-date{
+#zip::placeholder {
+    color: grey;
+}
+
+#entry-date {
     grid-area: date;
     text-align: center;
 }
+
 .button-ctr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
+
 #generate {
     height: auto;
     padding: 4px;
@@ -140,15 +151,16 @@ h3 {
     border-radius: 5px;
     margin-bottom: 5px;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
+
 .view-entry {
     grid-area: view-entry;
-    /*min-width: 80%;*/
     width: 80%;
     max-width: 500px;
     margin-left: 7.5%;
@@ -156,86 +168,77 @@ button:focus {
     background: rgba(57, 73, 107, 0.4);
     border-radius: 5px;
     border: 1px solid grey;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.7);
 }
-.title{
+
+.title {
     text-align: center;
 }
+
 #view-title {
-    margin-left: 7.5%;
+    /*margin-left: 7.5%;*/
 }
-#entryHolder{
+
+#entryHolder {
     height: 85%;
     display: grid;
     grid-template-rows: 8% 6% 30% 6% 50%;
-    grid-template-areas: "locale" 
-                        "description"
-                         "temp-icon"
-                         "date"
-                         "mood";
+    grid-template-areas: "locale" "description" "temp-icon" "date" "mood";
 }
+
 .meta-details {
     width: 85%;
     margin-left: 7.5%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     font-size: 1.1em;
-    /*margin-top: 5px;*/
-    /*background: white;  #b1faf4;*/
 }
 
-#weather, #weather-details, #date{
+#weather,
+#weather-details,
+#date {
     font-weight: 500;
 }
+
 #locale {
     grid-area: locale;
     text-align: center;
     margin-bottom: 5px;
     letter-spacing: 0.15em;
-    font-size: 1.35em;
+    font-size: 1.25em;
 }
 
 #weather {
     grid-area: description;
     text-align: center;
     text-transform: capitalize;
-    /*margin-bottom: -12px;*/
 }
-#weather-info{
+
+#weather-info {
     grid-area: temp-icon;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "temp icon";
     margin-bottom: -10px;
 }
+
 #temp-details {
     grid-area: temp;
     align-self: center;
     text-align: center;
-    /*margin: auto 50%;*/
+    margin-right: -15%;
     font-size: 1.5em;
-
-/*    width: 50%;
-    height: 100%;
-    position: relative;
-    float: left;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5em;*/
 }
-#temp{
+
+#temp {
     margin: auto 0;
     width: auto;
 }
+
 .weather-icon {
     grid-area: icon;
-
-    /*
-    position: relative;
-    float: right;
-    width: 50%;
-    display: flex;
-    flex-direction: column;*/
 }
+
 #icon {
     margin: auto 0;
     width: auto;
@@ -246,109 +249,108 @@ button:focus {
     color: white;
     text-align: center;
 }
-/*
-#date::before {
-    content: "Journal Entry for ";
-    
-}
-*/
+
 .mood-holder {
     grid-area: mood;
     display: flex;
     flex-direction: column;
-    height: 175px;
-    max-height: 175px;
+    height: 90%; 175px;
+    max-height: 90%; 175px;
     width: 85%;
     margin-left: 7.5%;
-    margin-top: 7px;
+    margin-top: 5%; 7px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow-y: auto;
+    overflow-wrap: break-word;
     color: white;
-/*    background: white;*/
+    font-family: 'Handlee', 'Courgette';
+    /*font-size: 0.85em;*/
 }
+
 .all-entries {
     grid-area: all-entries;
     margin-top: 15px;
 }
 
-
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: black; #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-
-/*
-.entry{
-    
-}
-
-
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-/*label{
-    display:block;
-    font-size: 27px;
-}
-
-input{
-    display:block;
-    height: 60px;
-    width: 100%;
-    background-color: white;
+#footer {
+    grid-area: footer;
     color: black;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
+    text-align: center;
+    text-shadow: 0.75px 0.75px white;
 }
+/* Style for Placeholder Text*/
 
-button{
-    width: 80px;
-    height: 40px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-
-
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
+    ::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: grey;
+    #f0d43a;
     font-family: 'Oswald', sans-serif;
 }
-/* Reset style for HTML element on active to have no border*/
+
+    :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: grey;
+    #f0d43a;
+    font-family: 'Oswald', sans-serif;
+}
+
+    ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: grey;
+    #f0d43a;
+    font-family: 'Oswald', sans-serif;
+}
+/* mobile responsive layout*/
+
+@media only screen and (max-width:760px) {
+    #app {
+        grid-template-rows: 60px 400px 400px auto 40px;
+        grid-template-areas: "heading" 
+                            "new-entry" 
+                            "view-entry" 
+                            "all-entries" 
+                            "footer";
+        grid-template-columns: 1fr;
+        height: 100%;
+        min-height: 100%;
+        width: 100vw;
+        min-width: 100vw;
+    }
+    /*
+#view-entries {
+grid-area: add-entry;
+}*/
+    #new-entry {
+        grid-area: new-entry;
+        margin-left: auto;
+        margin-right: auto;
+        height: 90%;
+        width: 80%;
+        max-width: 550px; 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .view-entry {
+        grid-area: view-entry;
+        margin-left: auto;
+        margin-right: auto;
+        height: 90%;
+        width: 80%;
+        max-width: 550px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    #footer {
+    }
+
+    #heading {
+        font-size: 2.25em;
+        padding-bottom: 1%;
+        margin-bottom: 0;
+        padding-top: 2.5%;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    

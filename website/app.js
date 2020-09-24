@@ -2,7 +2,8 @@
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
+let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear().toString().substr(2,2);
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 // api constructors for retrieving weather data from openweathermap.org
 const apiKey = '2ad76e8d73c762b9428f448e8ecc3119';
@@ -29,6 +30,10 @@ function newEntry(event) {
         postEntry('/add', {date: newDate, weather: weatherData.weather[0]['description'], 
             icon: weatherData.weather[0]['icon'], temp: weatherData.main.temp, 
             locale: weatherData.name, mood: currentMood});
+    })
+    .catch (error => {
+        alert("Missing or invalid zip code!  Please try again");
+        console.log("error occurred:", error);
     })
     .then (function(newEntry){
         updateUI('/all');
@@ -84,13 +89,17 @@ const updateUI = async(url='') => {
     })
     try {
         allEntries = await res.json();
+        // if successful clear input fields//
+        document.getElementById('feelings').value = '';
+        document.getElementById('zip').value ='';
+        // then populate view latest entry section
         latestEntry = allEntries[allEntries.length-1];
         weatherIcon = latestEntry.icon;
         document.getElementById('locale').innerHTML = latestEntry.locale;
         document.getElementById('temp').innerHTML = Math.round(latestEntry.temp) + "&#8457;";
         document.getElementById('weather').innerHTML = latestEntry.weather;
         document.querySelector('.weather-icon').innerHTML = `<img id="icon" src="${iconURL}${weatherIcon}${iconFormat}" alt="weather-icon"> </img>`;
-        document.getElementById('date').innerHTML = latestEntry.date;
+        document.getElementById('date').innerHTML = days[d.getDay()] + " " + latestEntry.date;
         document.getElementById('content').innerHTML = latestEntry.mood;
         /*console.log(allEntries);*/
     }
