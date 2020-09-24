@@ -9,7 +9,7 @@ Tools required to develop and run this project, are as follows:
 - web browser (e.g. Chrome/Safari/Firefox)
 - Node.js
 - 3rd party Node.js packages: express, body-parser, cors (Note: these package dependencies are captured in the package.json file)
-- a free developers account from openweathermap.org
+- a free developers account from openweathermap.org (required only if you wish to use your open API token for retrieving data)
 
 ## Development & Instructions
 ### HTML
