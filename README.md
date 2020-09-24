@@ -8,7 +8,7 @@ Tools required to develop and run this project, are as follows:
 - text editor (e.g. [Atom](https://atom.io/)) or Integrated Development Environment - IDE (e.g. MS Visual Studio)
 - web browser (e.g. Chrome/Safari/Firefox)
 - Node.js
-- 3rd party Node.js packages: express, body-parser, cors (Note: these package dependencies are captured in the package.json file)
+- 3rd party Node.js packages: express, body-parser, cors (Note: these package dependencies are captured in the package.json file with actual packages included in the node_modules folder)
 - a free developers account from openweathermap.org (required only if you wish to use your open API token for retrieving data)
 
 ## Development & Instructions
