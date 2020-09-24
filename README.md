@@ -22,10 +22,10 @@ The supporting css file governs overall layout of the site including media queri
 The supporting javascript file, "app.js", controls dynamic functionality on the landing page including: 
 - population of the current date
 - retrieval (GET) of the current weather data from openweathermap.org (retrieves the API for current weather by zip: https://openweathermap.org/current#zip)
-- browser aka client-side post (POST) and retrieval (GET) of said weather data plus user journal entries to a local express server for storing and retrieving data.  Note, as no backend datastore (e.g. database) is implemented for the initial scope of this project, this setup mainly serves local testing and development purposes.
+- browser aka client-side post (POST) and retrieval (GET) of said weather data plus user journal entries to a local express server for storing and retrieving data.  
 ### JavaScript: server.js
-The backend server file, "server.js", employs the Node.js web application framework 'Express' for setting up a local server.  Functionality provided includes:
-- basic routing for loading the main landing page provided by index.html
+The backend server file, "server.js", employs the Node.js web application framework 'Express' for setting up a local server.  Note, as the scope of this project does not implement any dedicated backend datastore (e.g. database) as a complement to the local server, this setup mainly serves local testing and development purposes rather than implementing true data persistence (e.g. across server restarts/user sessions etc). Functionality provided includes:
+- Basic routing for loading the main landing page (as provided by index.html).
 - Middleware functionality including GET and POST routines that correspond to the POST and GET calls from the browser aka client-side (as implemented by app.js).  Here, the journal entries comprising weather data and user's input are posted and retrieved.  The Node.js 'body-parser' package is used for json string parsing of the journal entry payloads.  
 - In addition, the Node.js 'cors' (cross origin resource sharing) package is also installed.  That said, as requests to openweathermap.org are made from the browser/client-side and not the server, the installation of the cors package is employed as more of an exercise for how real world applications are implemented.
 
