@@ -29,7 +29,7 @@ app.post('/add', addEntry);
 
 function addEntry(req, res) {
     projectData.push(req.body);
-    res.send(projectData[projectData.length-1]);
+    res.send(projectData[projectData.length - 1]);
 }
 // Get all weather journal entries
 app.get('/all', getEntries);
