@@ -29,5 +29,5 @@ The backend server file, "server.js", employs the Node.js web application framew
 - Middleware functionality including GET and POST routines that correspond to the POST and GET calls from the browser aka client-side (as implemented by app.js).  Here, the journal entries comprising weather data and user's input are posted and retrieved.  The Node.js 'body-parser' package is used for json string parsing of the journal entry payloads.  
 - In addition, the Node.js 'cors' (cross origin resource sharing) package is also installed.  That said, as requests to openweathermap.org are made from the browser/client-side and not the server, the installation of the cors package is employed as more of an exercise for how real world applications are implemented.
 
-## Website Preview
-![Weather Journal App Preview](/weather_journal_preview.png)
+## Web App Result
+![Weather Journal App](/weather_journal_preview.png)
