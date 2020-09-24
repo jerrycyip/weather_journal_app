@@ -30,3 +30,4 @@ The backend server file, "server.js", employs the Node.js web application framew
 - In addition, the Node.js 'cors' (cross origin resource sharing) package is also installed.  That said, as requests to openweathermap.org are made from the browser/client-side and not the server, the installation of the cors package is employed as more of an exercise for how real world applications are implemented.
 
 ## Website Preview
+![Weather Journal App Preview](/weather_journal_preview.png)
