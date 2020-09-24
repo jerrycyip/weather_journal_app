@@ -13,10 +13,10 @@ Tools required to develop and run this project, are as follows:
 
 ## Development & Instructions
 ### HTML
-The main landing page (aka homepage) is accessed via the index.html file and comprises a series of cards that allow for adding new journal entries as well as viewing the latest entry.
+The main landing page (aka homepage) is accessed via the index.html file and comprises a series of cards that allow for adding new journal entries as well as viewing the latest journal entry.
 
 ### CSS
-The supporting css file governs overall layout of the site include media queries for mobile responsive functionality.
+The supporting css file governs overall layout of the site including media queries for mobile responsive functionality.
 
 ### JavaScript: app.js
 The supporting javascript file, "app.js", controls dynamic functionality on the landing page including: 
