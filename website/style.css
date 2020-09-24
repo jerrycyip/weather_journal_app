@@ -1,4 +1,4 @@
-    html {}
+    
 /* rules that apply to entire page */
 
 * {
@@ -21,12 +21,12 @@
     #0e0c02;
     font-family: "Comic Neue";
 }
-/* specific rules for section of the website/app */
+
+/* specific rules for sections of the website/app */
 
 .headline {
     grid-area: heading;
     color: black;
-    /*rgba(255, 255, 255, 0.959);*/
     font-weight: 800;
     display: flex;
     flex-direction: column;
@@ -38,20 +38,6 @@
 #heading {
     font-size: 2.75em;
 }
-/*
-#view-entries {
-grid-area: view-entries;
-/*display: grid;
-width: 100%;
-grid-template-columns: 50% 50%;
-grid-template-areas: "new-entry view-entry";
-
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-}
-*/
 
 h3 {
     margin: 1%; 5px;
@@ -265,7 +251,6 @@ button:focus {
     overflow-wrap: break-word;
     color: white;
     font-family: 'Handlee', 'Courgette';
-    /*font-size: 0.85em;*/
 }
 
 .all-entries {
@@ -301,8 +286,8 @@ button:focus {
     #f0d43a;
     font-family: 'Oswald', sans-serif;
 }
-/* mobile responsive layout*/
 
+/* mobile responsive layout*/
 @media only screen and (max-width:760px) {
     #app {
         grid-template-rows: 60px 400px 400px auto 40px;
@@ -317,10 +302,7 @@ button:focus {
         width: 100vw;
         min-width: 100vw;
     }
-    /*
-#view-entries {
-grid-area: add-entry;
-}*/
+
     #new-entry {
         grid-area: new-entry;
         margin-left: auto;
