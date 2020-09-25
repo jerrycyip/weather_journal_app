@@ -10,6 +10,7 @@ Tools required to develop and run this project, are as follows:
 - Node.js
 - 3rd party Node.js packages: express, body-parser, cors (Note: these package dependencies are captured in the package.json file with actual packages included in the node_modules folder)
 - a free developers account from openweathermap.org (required only if you wish to use your open API token for retrieving data)
+- (not required) This project and related requirements was tracked and managed in the following kanban board: https://trello.com/b/IsxUGknc/weather-journal-app
 
 ## Development & Instructions
 ### HTML
