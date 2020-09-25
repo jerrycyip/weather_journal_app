@@ -34,4 +34,4 @@ The backend server file, "server.js", employs the Node.js web application framew
 ![Weather Journal App](/weather_journal_preview.png)
 
 ## Mobile View Result
-![Weather Journal App Mobile](/weather_journal_mobile.png?s=75)
+![Weather Journal App Mobile](/weather_journal_mobile.png?s=50)
