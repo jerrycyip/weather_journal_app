@@ -1,7 +1,7 @@
 # Weather-Journal App Project
 
 ## Project Description
-This project is part of Udacity's Front End Web Developer Nanodegree program.  The project requirements are to create an asynchronous web app that uses Web APIs from openweathermap.org and user input data to dynamically update the User Interface (UI) and capture user journal entries combined with the current weather conditions.  HTML, CSS, JavaScript and NodeJS are employed for this implementation with specific requirements and implementation details provided below.  Screenshots of the resulting web app are also provided below for visual aid and illustration purposes.
+This project is part of Udacity's Front End Web Developer Nanodegree program.  The project requirements are to create an asynchronous web app that uses Web APIs from openweathermap.org and user input data to dynamically update the User Interface (UI) with user journal entries combined with the current weather conditions.  HTML, CSS, JavaScript and NodeJS are employed for this implementation with specific requirements and implementation details provided below.  Screenshots of the resulting web app are also provided below for visual aid and illustration purposes.
 
 ## Tools Required
 Tools required to develop and run this project, are as follows: 
